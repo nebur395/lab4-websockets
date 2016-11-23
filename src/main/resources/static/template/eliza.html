@@ -1,0 +1,44 @@
+<div id="main-content" class="container">
+  <div class="row">
+
+    <div class="col-md-6">
+          <label for="connect">WebSocket connection:</label>
+          <button id="connect" class="btn btn-default" ng-click="connectEliza()"
+                  ng-disabled="connect">Connect
+          </button>
+          <button id="disconnect" class="btn btn-default" ng-click="disconnectEliza()"
+                  ng-disabled="!connect">Disconnect
+          </button>
+    </div>
+
+    <div class="col-md-6">
+      <label for="name">Ask to the doctor: </label>
+      <div class="row">
+        <div class="col-md-10">
+          <input type="text" id="name" class="form-control" placeholder="Your name here..."
+                 ng-model="requestEliza">
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-default" ng-click="sendRequest()">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <table ng-hide="!connect" class="table table-striped">
+        <thead>
+        <tr>
+          <th>Doctor responses:</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="response in responsesList track by $index">
+          <td>{{response}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

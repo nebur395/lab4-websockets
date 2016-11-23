@@ -25,9 +25,9 @@ public class ElizaController {
         Scanner currentLine = new Scanner(message.toLowerCase());
         if (currentLine.findInLine("bye") == null) {
             LOG.info("Server recieved \"" + message + "\"");
-            template.convertAndSend("/topic/greetings", eliza.respond(currentLine));
+            template.convertAndSend("/topic/greetings", "\"" + eliza.respond(currentLine) + "\"");
         } else {
-            template.convertAndSend("/topic/greetings", "Alright then, goodbye!");
+            template.convertAndSend("/topic/greetings", "\"Alright then, goodbye!\"");
         }
     }
 }

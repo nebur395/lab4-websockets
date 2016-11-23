@@ -25,8 +25,8 @@ public class StompSessionSubscribeEventListener implements
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        template.convertAndSend("/topic/greetings", "The doctor is in.");
-        template.convertAndSend("/topic/greetings", "What's on your mind?");
+        template.convertAndSend("/topic/greetings", "\"The doctor is in.\"");
+        template.convertAndSend("/topic/greetings", "\"What's on your mind?\"");
         LOG.info("SUBSCRIBED LISTENER ");
     }
 }
