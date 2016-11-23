@@ -21,12 +21,12 @@ public class StompSessionSubscribeEventListener implements
     @Override
     public void onApplicationEvent(SessionSubscribeEvent sessionSubscribeEvent) {
         try {
-            Thread.sleep(1000);  //
+            Thread.sleep(1000);  //simulate a delay
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        template.convertAndSend("/topic/greetings", "\"The doctor is in.\"");
-        template.convertAndSend("/topic/greetings", "\"What's on your mind?\"");
+        template.convertAndSend("/topic/eliza", "\"The doctor is in.\"");
+        template.convertAndSend("/topic/eliza", "\"What's on your mind?\"");
         LOG.info("SUBSCRIBED LISTENER ");
     }
 }

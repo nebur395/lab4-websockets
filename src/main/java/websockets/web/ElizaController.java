@@ -19,15 +19,15 @@ public class ElizaController {
     @Autowired
     private SimpMessagingTemplate template;
 
-    @MessageMapping("/hello")
+    @MessageMapping("/doctor")
     public void greeting(String message) throws Exception {
         LOG.error("Server Message ... ");
         Scanner currentLine = new Scanner(message.toLowerCase());
         if (currentLine.findInLine("bye") == null) {
             LOG.info("Server recieved \"" + message + "\"");
-            template.convertAndSend("/topic/greetings", "\"" + eliza.respond(currentLine) + "\"");
+            template.convertAndSend("/topic/eliza", "\"" + eliza.respond(currentLine) + "\"");
         } else {
-            template.convertAndSend("/topic/greetings", "\"Alright then, goodbye!\"");
+            template.convertAndSend("/topic/eliza", "\"Alright then, goodbye!\"");
         }
     }
 }

@@ -25,10 +25,6 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
+	compile ('org.glassfish.tyrus:tyrus-container-grizzly-server:1.13')
 	compile("org.springframework.boot:spring-boot-starter-websocket")
-
-	testCompile("org.springframework.boot:spring-boot-starter-test")
-
-	compile 'org.glassfish.tyrus:tyrus-container-grizzly-server:1.13'
-    testCompile 'junit:junit:4.11'
 }

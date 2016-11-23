@@ -11,13 +11,14 @@ angular.module('ElizaWebsocketsApp')
             $scope.responsesList = [];
         };
 
-        $scope.addResponse = function (response) {
+        var addResponse = function (response) {
             $scope.responsesList.push(response);
             $scope.requestEliza = "";
+            $scope.$apply();
         };
 
         $scope.connectEliza = function () {
-            elizaWebsocket.connectEliza(setConnnected,$scope.addResponse);
+            elizaWebsocket.connectEliza(setConnnected,addResponse);
         };
 
         $scope.disconnectEliza = function () {
@@ -25,6 +26,6 @@ angular.module('ElizaWebsocketsApp')
         };
 
         $scope.sendRequest = function () {
-            elizaWebsocket.sendRequestToEliza($scope.requestEliza,$scope.addResponse);
+            elizaWebsocket.sendRequestToEliza($scope.requestEliza,addResponse);
         }
     }]);
